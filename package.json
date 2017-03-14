@@ -8,7 +8,9 @@
     "angular-ui-router": "^1.0.0-beta.1",
     "bootstrap": "^3.3.7",
     "lodash": "^4.17.4",
-    "normalize.css": "^3.0.3",
+    "normalize.css": "^3.0.3"
+  },
+  "devDependencies": {
     "angular-mocks": "^1.5.0",
     "babel-core": "^6.7.7",
     "babel-loader": "^6.2.4",
@@ -55,7 +57,6 @@
   },
   "scripts": {
     "build": "gulp webpack",
-    "component": "gulp component",
     "serve": "gulp serve",
     "start": "gulp serve",
     "test": "karma start",
@@ -64,14 +65,14 @@
   },
   "keywords": [
     "angular",
-    "webpack",
+    "colossus",
     "es6"
   ],
   "repository": {
     "type": "git",
     "url": ""
   },
-  "author": "Ehsan",
+  "author": "Ehsan.khf",
   "license": "Apache-2.0",
   "babel": {
     "plugins": [

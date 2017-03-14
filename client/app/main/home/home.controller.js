@@ -136,9 +136,9 @@ class HomeController {
       });
     });
 
-    return this.CommunicationService.post(`${BASE_URL}pools/tickets.json`, data).then((response)=> {
+    return this.CommunicationService.post(`${BASE_URL}tickets.json`, data).then((response)=> {
     }).then((response)=> {
-      console.log('OK!!!!');
+      console.log('sent');
     }).catch((err)=> {
       console.log(err);
     })

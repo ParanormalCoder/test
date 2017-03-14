@@ -53,21 +53,4 @@ describe('Home', () => {
     });
 
   });
-
-  describe('View', () => {
-    // view layer specs.
-    let scope, template;
-
-    beforeEach(() => {
-      scope = $rootScope.$new();
-      template = $compile('<home></home>')(scope);
-      scope.$apply();
-    });
-
-    it('has name in template', () => {
-      console.log(template);
-      expect(template.find('h3').html()).to.eq('EVENTS');
-    });
-
-  });
 });

@@ -1,0 +1,74 @@
+<navbar></navbar>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="panel">
+        <div class="panel-body">
+          <div id="stakeValue" class="col-sm-3 form-inline">
+            <label>Stake:</label>
+            <select ng-model="$ctrl.form.stake" required
+                    ng-options='stake as stake for stake in $ctrl.getStakeValues()'
+                    ng-change="$ctrl.updateForm()"></select>
+          </div>
+          <div id="lines" class="col-sm-3 form-inline">
+            <label>Lines:</label> {{$ctrl.form.lines}}
+          </div>
+          <div id="totalBet" class="col-sm-3 form-inline">
+            <label>Total bet:</label> {{$ctrl.form.totalCost | number:2}}$
+          </div>
+          <div class="col-sm-3 form-inline">
+            <button class="btn btn-default"
+                    ng-click="$ctrl.bet()"
+                    ng-disabled="!$ctrl.form.hasSelected">
+              BET!
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row pool">
+      <span ng-repeat="group in $ctrl.pools" class="col-sm-4">
+        <div class="panel">
+          <div class="panel-title text-center">
+            <h4>{{group.display_group_name}}</h4> Pools
+          </div>
+          <div class="panel-body">
+            <span ng-repeat="pool in group.pools">
+              <button ng-click="$ctrl.getPool(pool.id)"
+                      class="btn btn-default">
+                {{pool.name}}
+              </button>
+            </span>
+          </div>
+        </div>
+      </span>
+    </div>
+
+    <div class="row" ng-if="!!$ctrl.currentPool">
+      <div class="jumbotron">
+        <h3>EVENTS</h3>
+        <div ng-repeat="(index,leg) in $ctrl.currentPool.legs" class="row leg">
+          <p class="text-center">{{leg.sport_event.name}}</p>
+          <div class="col-sm-12">
+            <div class="selection-container">
+              <div class="btn-group">
+                <label class="btn btn-primary"
+                       ng-repeat="selection in leg.selections | orderBy : 'display_order'"
+                       ng-model="$ctrl.form.selections[index][selection.id]"
+                       uib-btn-checkbox
+                       ng-click="$ctrl.updateForm()">
+                  {{selection.name}}
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
